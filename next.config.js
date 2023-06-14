@@ -1,13 +1,13 @@
-const path = require('path')
- 
+const path = require('path');
+
 const { get } = require('@vercel/edge-config');
 const { withContentlayer } = require('next-contentlayer');
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
- sassOptions: {
-        includePaths: [path.join(__dirname, 'styles')],
-      },
+  sassOptions: {
+    includePaths: [path.join(__dirname, 'styles')],
+  },
   images: {
     formats: ['image/avif', 'image/webp'],
     // Twitter Profile Picture
