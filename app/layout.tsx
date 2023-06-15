@@ -1,12 +1,13 @@
-import './globals.css';
+import '#/styles/globals.css';
 
 import { Inter } from 'next/font/google';
 
-import { siteConfig } from '#/config/site';
-import { ThemeProvider } from '#/components/theme-provider';
 import { Analytics } from '#/components/analytics';
-import { Toaster } from '#/components/ui/toaster';
 import { TailwindIndicator } from '#/components/tailwind-indicator';
+import { ThemeProvider } from '#/components/theme-provider';
+import Header from '#/components/ui/Header';
+import { Toaster } from '#/components/ui/toaster';
+import { siteConfig } from '#/config/site';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -56,9 +57,11 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <head />
-      <body className={inter.className}>
-        {children}
+      <body
+        className={`${inter.className} flex min-h-screen flex-col overflow-x-hidden bg-primary text-primaryFg antialiased transition-colors duration-500 `}
+      >
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
+          <Header />
           {children}
           <Analytics />
           <Toaster />
